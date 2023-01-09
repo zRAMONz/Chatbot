@@ -99,6 +99,9 @@ function displayMessage() {
   } else {
     document.getElementById("output").innerHTML = "Perfeito! Já gerei a resposta para o seu pedido! Para vê-la, por favor, digite o seu nome.";
   }
+else if (input.toLowerCase().includes("amon")) {
+  document.getElementById("output").innerHTML = "Ramon é o nome mais lindo que existe";
+}
 }
 
 document.getElementById("input").addEventListener("keydown", event => {
