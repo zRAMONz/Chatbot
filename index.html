@@ -1,0 +1,101 @@
+<html>
+<head>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background-color: #dddddd;
+      padding: 30px;
+    }
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      padding: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+    button[type="button"] {
+      width: 100%;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="button"]:hover {
+      background-color: #45a049;
+    }
+    p {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    #logo {
+      margin: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    #ad-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    #ad-container img {
+      width: 45%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="logo">ChatBot</div>
+
+<form>
+  <label for="input">Enter your message:</label><br>
+  <input type="text" id="input" autofocus><br>
+  <button type="button" onclick="displayMessage()">Submit</button>
+</form> 
+
+<div id="ad-container">
+  <img src="https://via.placeholder.com/150x150?text=Perda+de+peso">
+  <img src="https://via.placeholder.com/150x150?text=Modelos+de+peruca">
+  <img src="https://via.placeholder.com/150x150?text=Remédios+para+queda+de+cabelo">
+</div>
+
+<p id="output"></p>
+
+<script>
+const messages = [
+  "Sua resposta pré-definida 1",
+  "Sua resposta pré-definida 2",
+  "Sua resposta pré-definida 3",
+  "Sua resposta pré-definida 4",
+  "Sua resposta pré-definida 5",
+];
+let index = 0;
+
+function displayMessage() {
+  document.getElementById("output").innerHTML = messages[index];
+  index = (index + 1) % messages.length;
+}
+
+document.getElementById("input").addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    displayMessage();
+  }
+});
+</script>
+
+</body>
+</html>
