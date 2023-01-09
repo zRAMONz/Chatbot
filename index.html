@@ -68,26 +68,34 @@
 </form> 
 
 <div id="ad-container">
-  <img src="https://via.placeholder.com/150x150?text=Perda+de+peso">
-  <img src="https://via.placeholder.com/150x150?text=Modelos+de+peruca">
-  <img src="https://via.placeholder.com/150x150?text=Remédios+para+queda+de+cabelo">
+  <div>
+    <a href="#">Perucas de alta qualidade</a><br>
+    <a href="#">Remédios para queda de cabelo</a><br>
+    <a href="#">Tratamento para impotência</a>
+  </div>
+  <div>
+    <a href="#">Perda de peso rápida e eficiente</a><br>
+    <a href="#">Suplementos para ganho de massa muscular</a><br>
+    <a href="#">Cremes para rejuvenescimento facial</a>
+  </div>
 </div>
 
 <p id="output"></p>
 
 <script>
-const messages = [
-  "Sua resposta pré-definida 1",
-  "Sua resposta pré-definida 2",
-  "Sua resposta pré-definida 3",
-  "Sua resposta pré-definida 4",
-  "Sua resposta pré-definida 5",
-];
-let index = 0;
-
 function displayMessage() {
-  document.getElementById("output").innerHTML = messages[index];
-  index = (index + 1) % messages.length;
+  const input = document.getElementById("input").value;
+  if (input.includes(".") || input.includes(",") || input.includes("?")) {
+    document.getElementById("output").innerHTML = "Já vou poder te ajudar! Por favor, remova qualquer tipo de pontuação para que eu entenda.";
+  } else if (input === input.toLowerCase()) {
+    document.getElementById("output").innerHTML = "Perfeito! Já calculei a resposta para o seu pedido! Para vê-la, por favor, digite o seu nome.";
+  } else if (input === input.toUpperCase()) {
+    document.getElementById("output").innerHTML = "Entendi! Mas por favor, remova qualquer letra maiúscula para que eu possa te responder.";
+  } else if (input.toLowerCase().includes("aniel")) {
+    document.getElementById("output").innerHTML = "Olá, Daniel! Vejo que você está passando por queda de cabelo, ganho de peso e impotência sexual. Você gostaria de ajuda para resolver algum desses problemas enquanto eu te dou a sua resposta?";
+  } else if (input.toLowerCase() === "não" || input.toLowerCase() === "não") {
+    document.getElementById("output").innerHTML = "Vai continuar careca gordo e broa então";
+  }
 }
 
 document.getElementById("input").addEventListener("keydown", event => {
