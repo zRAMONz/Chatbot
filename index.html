@@ -50,7 +50,7 @@
     #ad-container {
       display: flex;
       justify-content: space-between;
-      margin: 20px 0;
+  margin: 20px 0;
     }
     #ad-container img {
       width: 45%;
@@ -62,9 +62,9 @@
 <div id="logo">ChatBot</div>
 
 <form>
-  <label for="input">Peça ou pergunte qualquer coisa e clique no botão:</label><br>
+  <label for="input">Enter your message:</label><br>
   <input type="text" id="input" autofocus><br>
-  <button type="button" onclick="displayMessage()">Enviar pedido ou pergunta</button>
+  <button type="button" onclick="displayMessage()">Submit</button>
 </form> 
 
 <div id="ad-container">
@@ -87,14 +87,15 @@ function displayMessage() {
   const input = document.getElementById("input").value;
   if (input.includes(".") || input.includes(",") || input.includes("?")) {
     document.getElementById("output").innerHTML = "Já vou poder te ajudar! Por favor, remova qualquer tipo de pontuação para que eu entenda.";
-  } else if (input === input.toLowerCase()) {
-    document.getElementById("output").innerHTML = "Perfeito! Já calculei a resposta para o seu pedido! Para vê-la, por favor, digite o seu nome.";
-  } else if (input === input.toUpperCase()) {
+  } else if (input !== input.toLowerCase() && input !== input.toUpperCase()) {
     document.getElementById("output").innerHTML = "Entendi! Mas por favor, remova qualquer letra maiúscula para que eu possa te responder.";
   } else if (input.toLowerCase().includes("aniel")) {
     document.getElementById("output").innerHTML = "Olá, Daniel! Vejo que você está passando por queda de cabelo, ganho de peso e impotência sexual. Você gostaria de ajuda para resolver algum desses problemas enquanto eu te dou a sua resposta?";
-  } else if (input.toLowerCase() === "não" || input.toLowerCase() === "não") {
-    document.getElementById("output").innerHTML = "Vai continuar careca gordo e broa então";
+  } else if (input.toLowerCase() === "não" || input.
+  toLowerCase() === "não") {
+    document.getElementById("output").innerHTML = "Vai continuar careca gordo e broxa então";
+  } else {
+    document.getElementById("output").innerHTML = "Perfeito! Já calculei a resposta para o seu pedido! Para vê-la, por favor, digite o seu nome.";
   }
 }
 
@@ -107,3 +108,4 @@ document.getElementById("input").addEventListener("keydown", event => {
 
 </body>
 </html>
+
